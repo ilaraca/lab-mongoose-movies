@@ -73,7 +73,7 @@ celebritiesRouter.get('/celebrities/:id/edit', (req, res, next) => {
 celebritiesRouter.post('/edit', (req, res) => {
   const { name, occupation, catchPhrase } = req.body;
   Celebrity.update({ _id: req.query.celebrity_id }, { $set: { name, occupation, catchPhrase } })
-    .then((celebrity) => {
+    .then(() => { // celebrity
       res.redirect('/celebrities');
     })
     .catch((error) => {
